@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Work Sans", sans-serif;
+  
+  --color-brand-ivory: #F7F5E9;
+  --color-brand-charcoal: #2B281B;
+  --color-brand-gold: #E3A85C;
+  --color-soft-sage: #AEC8C5;
+  --color-warm-stone: #AEA88F;
+}
+
+/* Glass panel effect */
+.glass-panel {
+  background: rgba(247, 245, 233, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(174, 168, 143, 0.2);
+  box-shadow: 0 4px 30px rgba(174, 168, 143, 0.05);
+}
+
+/* Custom Liquid Glass Card with SVG distortion filter */
+.liquid-glass-card {
+  position: relative;
+  border-radius: 28px;
+  isolation: isolate;
+  box-shadow: 0px 8px 32px rgba(174, 168, 143, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.liquid-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 28px;
+  box-shadow: inset 0 0 16px -2px rgba(255, 255, 255, 0.9), inset 0 0 4px 0px rgba(227, 168, 92, 0.15);
+  background-color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.liquid-glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 28px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  filter: url(#glass-distortion);
+  -webkit-filter: url(#glass-distortion);
+  background-color: rgba(247, 245, 233, 0.35);
+  pointer-events: none;
+}
+
+.liquid-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 12px 40px rgba(174, 168, 143, 0.22);
+}
+
+/* Darker or specialized liquid glass card for visual variety */
+.liquid-glass-card-dark {
+  position: relative;
+  border-radius: 28px;
+  isolation: isolate;
+  box-shadow: 0px 8px 32px rgba(43, 40, 27, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.liquid-glass-card-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 28px;
+  box-shadow: inset 0 0 12px -2px rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+}
+
+.liquid-glass-card-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  filter: url(#glass-distortion);
+  -webkit-filter: url(#glass-distortion);
+  background-color: rgba(43, 40, 27, 0.85);
+  pointer-events: none;
+}
+
+.liquid-glass-card-dark:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 12px 40px rgba(43, 40, 27, 0.35);
+}
+
+/* Glass Buttons */
+.glass-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Custom interactive effects */
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.arch-frame {
+  border-radius: 1000px 1000px 0 0;
+  overflow: hidden;
+}
+
