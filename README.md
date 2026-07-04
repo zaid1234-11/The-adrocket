@@ -6,6 +6,11 @@ A modern, responsive UI framework built with **TypeScript**, **CSS**, and **HTML
 
 AdRocket is a comprehensive UI project designed to deliver a polished, professional user experience for brand applications. Built with modern web technologies, it provides reusable components and styling systems that ensure consistency and scalability across your brand's digital presence.
 
+## 🔗 Quick Links
+
+- **Repository:** https://github.com/zaid1234-11/The-adrocket
+- **Live Demo:** https://the-adrocket-7u3vri1jq-zaidsaifi150105-8124s-projects.vercel.app/
+
 ## 🛠️ Tech Stack
 
 - **TypeScript** (96%) - Strongly-typed JavaScript for robust component development
