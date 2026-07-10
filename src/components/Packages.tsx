@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { DynamicGlassCard } from './DynamicGlassCard';
 import { Check, Flame, Award, Shield } from 'lucide-react';
 import { useGlass } from './GlassContext';
 
-export const Packages: React.FC = () => {
+export const Packages = React.memo(() => {
   const { settings } = useGlass();
 
   const tiers = [
@@ -175,4 +175,4 @@ export const Packages: React.FC = () => {
       </div>
     </section>
   );
-};
+});

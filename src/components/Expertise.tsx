@@ -1,6 +1,6 @@
 import React from 'react';
 import { DynamicGlassCard } from './DynamicGlassCard';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { m as motion, useScroll, useTransform } from 'motion/react';
 import { Check, Chrome, Share2, ShoppingCart, Activity, Sparkles } from 'lucide-react';
 
 export const Expertise: React.FC = () => {
