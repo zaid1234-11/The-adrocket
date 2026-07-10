@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useGlass } from './GlassContext';
-import { motion, AnimatePresence } from 'motion/react';
+import { m as motion, AnimatePresence } from 'motion/react';
 import { Compass, FileText, PlayCircle, Award, CheckCircle2 } from 'lucide-react';
 import { DynamicGlassCard } from './DynamicGlassCard';
 
@@ -85,9 +85,9 @@ export const Process: React.FC = () => {
 
                   {/* Step Title */}
                   <div className="flex-1">
-                    <h4 className="font-serif text-lg font-bold text-brand-charcoal">
+                    <h3 className="font-serif text-lg font-bold text-brand-charcoal">
                       {step.title}
-                    </h4>
+                    </h3>
                   </div>
 
                   <IconComp className={`w-5 h-5 shrink-0 ${isOpen ? 'text-brand-gold animate-pulse' : 'text-brand-charcoal/35'}`} />

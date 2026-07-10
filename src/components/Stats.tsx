@@ -1,26 +1,29 @@
 import React from 'react';
 import { useGlass, getTintRgba } from './GlassContext';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { ShieldCheck, Layers, Globe } from 'lucide-react';
 
-export const Stats: React.FC = () => {
+export const Stats = React.memo(() => {
   const { settings } = useGlass();
 
   const stats = [
     {
       value: '12+',
+      suffix: '',
       label: 'Years Experience',
       desc: 'Forging growth pathways',
       icon: ShieldCheck,
     },
     {
       value: '800+',
+      suffix: '',
       label: 'Projects Delivered',
       desc: 'Precision execution & ROI',
       icon: Layers,
     },
     {
       value: 'India, USA, Canada',
+      suffix: '',
       label: 'Global Reach',
       desc: 'Omnichannel multi-market setups',
       icon: Globe,
@@ -29,7 +32,11 @@ export const Stats: React.FC = () => {
 
   return (
     <section className="py-12 px-6 max-w-7xl mx-auto">
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="w-full rounded-[32px] overflow-hidden transition-all duration-300 border border-brand-charcoal/5 p-8 md:p-12"
         style={{
           backdropFilter: `blur(${settings.blur}px)`,
@@ -43,12 +50,8 @@ export const Stats: React.FC = () => {
           {stats.map((stat, idx) => {
             const IconComponent = stat.icon;
             return (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
                 className="flex flex-col md:items-center text-center md:text-left py-6 md:py-0 md:px-8 space-y-3"
               >
                 <div className="flex items-center gap-3 md:justify-center">
@@ -64,13 +67,14 @@ export const Stats: React.FC = () => {
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <h3
+                  <div
                     className={`font-serif text-3xl md:text-4xl font-bold tracking-tight ${
                       settings.tintColor === 'slate' ? 'text-white' : 'text-brand-charcoal'
                     }`}
                   >
                     {stat.value}
-                  </h3>
+                    <span className="text-brand-gold">{stat.suffix}</span>
+                  </div>
                   <p
                     className={`text-xs ${
                       settings.tintColor === 'slate' ? 'text-white/50' : 'text-brand-charcoal/50'
@@ -79,11 +83,11 @@ export const Stats: React.FC = () => {
                     {stat.desc}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
-};
+});
