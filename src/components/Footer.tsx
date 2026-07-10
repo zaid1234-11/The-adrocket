@@ -3,7 +3,7 @@ import { useGlass } from './GlassContext';
 import { Mail, Check, ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
 import { Logo } from './Logo';
 
-export const Footer: React.FC = () => {
+export const Footer = React.memo(() => {
   const { settings } = useGlass();
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -40,23 +40,35 @@ export const Footer: React.FC = () => {
           
           {/* Social Icons */}
           <div className="flex gap-4">
-            {[Linkedin, Twitter, Github].map((Icon, idx) => (
-              <a 
-                key={idx} 
-                href="#" 
-                className="w-8 h-8 rounded-full border border-white/10 hover:border-brand-gold flex items-center justify-center hover:text-brand-gold transition-colors"
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
+            <a 
+              href="#" 
+              aria-label="LinkedIn"
+              className="w-8 h-8 rounded-full border border-white/10 hover:border-brand-gold flex items-center justify-center hover:text-brand-gold transition-colors"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a 
+              href="#" 
+              aria-label="Twitter"
+              className="w-8 h-8 rounded-full border border-white/10 hover:border-brand-gold flex items-center justify-center hover:text-brand-gold transition-colors"
+            >
+              <Twitter className="w-4 h-4" />
+            </a>
+            <a 
+              href="#" 
+              aria-label="GitHub"
+              className="w-8 h-8 rounded-full border border-white/10 hover:border-brand-gold flex items-center justify-center hover:text-brand-gold transition-colors"
+            >
+              <Github className="w-4 h-4" />
+            </a>
           </div>
         </div>
 
         {/* Links Col 1 (3 Cols) */}
         <div className="md:col-span-3 space-y-4">
-          <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-gold">
+          <h2 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-gold">
             Regions & Operations
-          </h4>
+          </h2>
           <ul className="space-y-2.5 text-xs md:text-sm text-[#F7F5E9]/70">
             {['Mumbai, India', 'New York, USA', 'Toronto, Canada', 'London, UK'].map((region, idx) => (
               <li key={idx} className="flex items-center gap-2 hover:text-[#F7F5E9] transition-colors">
@@ -69,16 +81,18 @@ export const Footer: React.FC = () => {
 
         {/* Stay Updated Col (4 Cols) */}
         <div className="md:col-span-4 space-y-4">
-          <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-gold">
+          <h2 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-gold">
             Stay Updated
-          </h4>
+          </h2>
           <p className="font-sans text-xs text-[#F7F5E9]/65">
             Recieve monthly unvarnished performance strategies, ad copywriting frameworks, and attribution alerts.
           </p>
 
           <form onSubmit={handleSubscribe} className="space-y-2.5">
             <div className="relative">
+              <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
               <input
+                id="newsletter-email"
                 type="email"
                 required
                 value={email}
@@ -88,6 +102,7 @@ export const Footer: React.FC = () => {
               />
               <button
                 type="submit"
+                aria-label="Subscribe to newsletter"
                 className="absolute right-1.5 top-1.5 w-9 h-9 rounded-full bg-brand-gold text-brand-charcoal flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 {subscribed ? <Check className="w-4 h-4 text-brand-charcoal" /> : <ArrowRight className="w-4 h-4" />}
@@ -105,8 +120,8 @@ export const Footer: React.FC = () => {
 
       {/* Underline copyright */}
       <div className="border-t border-white/5 py-6 text-center text-[11px] text-[#F7F5E9]/40 font-mono">
-        © {new Date().getFullYear()} The AdRocket. Crafted with Premium Glassmorphic precision. All rights reserved.
+        &copy; {new Date().getFullYear()} The AdRocket. Crafted with Premium Glassmorphic precision. All rights reserved.
       </div>
     </footer>
   );
-};
+});

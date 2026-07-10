@@ -28,7 +28,7 @@ export const Navbar: React.FC = () => {
           }`}
         >
           <Logo size={28} />
-          <span>The <span className="text-brand-gold italic font-normal">Ad</span>Rocket</span>
+          <span>The <span className={`${settings.tintColor === 'slate' ? 'text-brand-gold' : 'text-[#9e6316]'} italic font-normal`}>Ad</span>Rocket</span>
         </a>
 
         {/* Desktop Links */}
