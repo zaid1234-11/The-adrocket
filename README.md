@@ -1,6 +1,28 @@
+<div align="center">
+
 # The AdRocket
 
-A high-performance, premium UI architecture designed for elite digital marketing and branding agencies. Built with React, TypeScript, and Tailwind CSS, this project merges state-of-the-art Glassmorphism aesthetics with aggressive performance optimizations.
+### Premium UI/UX Architecture & Performance Engine
+
+**High-Ticket Glassmorphism · Zero-Delay CSS Keyframes · Lighthouse 94+ Performance**
+
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-THE_ADROCKET-32cd32?style=for-the-badge&logo=vercel)](https://the-adrocket-7u3vri1jq-zaidsaifi150105-8124s-projects.vercel.app/)
+![React](https://img.shields.io/badge/REACT-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TYPESCRIPT-5.X-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+<br/>
+![Vite](https://img.shields.io/badge/VITE-6.X-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TAILWIND_CSS-3.X-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![License](https://img.shields.io/badge/LICENSE-MIT-F7DF1E?style=for-the-badge&logoColor=black)
+
+</div>
+
+---
+
+## Overview
+
+The AdRocket is a high-performance, production-grade UI architecture designed for elite digital marketing and branding agencies. Built with **React**, **TypeScript**, and **Tailwind CSS**, this project merges state-of-the-art Glassmorphism aesthetics with aggressive, hardware-accelerated performance optimizations.
+
+Unlike traditional heavy agency sites that sacrifice performance for aesthetics, The AdRocket's **Performance Engine** continuously optimizes the critical rendering path — decoupling heavy animation libraries (Framer Motion) from initial loads, leveraging zero-delay CSS keyframes, and enforcing granular intersection-observer lazy loading to achieve a Lighthouse score of 94+.
 
 ## 🔗 Live Links
 - **Repository:** https://github.com/zaid1234-11/The-adrocket
