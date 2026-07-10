@@ -31,16 +31,22 @@ const GlassContext = createContext<GlassContextType | undefined>(undefined);
 export const GlassProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [settings, setSettings] = useState<GlassSettings>(defaultSettings);
 
-  const updateSettings = (newSettings: Partial<GlassSettings>) => {
+  const updateSettings = React.useCallback((newSettings: Partial<GlassSettings>) => {
     setSettings((prev) => ({ ...prev, ...newSettings }));
-  };
+  }, []);
 
-  const resetSettings = () => {
+  const resetSettings = React.useCallback(() => {
     setSettings(defaultSettings);
-  };
+  }, []);
+
+  const value = React.useMemo(() => ({
+    settings,
+    updateSettings,
+    resetSettings
+  }), [settings, updateSettings, resetSettings]);
 
   return (
-    <GlassContext.Provider value={{ settings, updateSettings, resetSettings }}>
+    <GlassContext.Provider value={value}>
       {children}
     </GlassContext.Provider>
   );
