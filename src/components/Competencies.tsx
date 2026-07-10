@@ -1,7 +1,7 @@
 import React from 'react';
 import { DynamicGlassCard } from './DynamicGlassCard';
 import { Compass, Zap, Coins, TrendingUp } from 'lucide-react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 
 export const Competencies: React.FC = () => {
   const competencies = [

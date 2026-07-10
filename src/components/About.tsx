@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { DynamicGlassCard } from './DynamicGlassCard';
 import { Award, Compass, ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import { useGlass } from './GlassContext';
 
-export const About: React.FC = () => {
+export const About = React.memo(() => {
   const { settings } = useGlass();
 
   const values = [
@@ -40,8 +40,8 @@ export const About: React.FC = () => {
           {/* Left Side: Story & Philosophy (5 Cols) */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <span className="font-sans font-bold text-xs uppercase tracking-widest text-brand-gold flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="font-sans font-bold text-xs uppercase tracking-widest text-[#9e6316] flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#9e6316]" />
                 ABOUT THE ADROCKET
               </span>
               <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-brand-charcoal leading-tight">
@@ -149,7 +149,7 @@ export const About: React.FC = () => {
             <h3 className="font-serif text-2xl font-bold tracking-tight text-brand-charcoal">
               Our Non-Negotiables
             </h3>
-            <p className="font-sans text-brand-charcoal/60 text-xs mt-2">
+            <p className="font-sans text-brand-charcoal/80 text-xs mt-2">
               Every single campaign is built upon these strict foundational tenets.
             </p>
           </div>
@@ -187,4 +187,4 @@ export const About: React.FC = () => {
       </div>
     </section>
   );
-};
+});
