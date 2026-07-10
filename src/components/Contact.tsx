@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useGlass } from './GlassContext';
-import { motion, AnimatePresence } from 'motion/react';
+import { m as motion, AnimatePresence } from 'motion/react';
 import { DynamicGlassCard } from './DynamicGlassCard';
 import { Check, CreditCard, Sparkles, Send, Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
 
-export const Contact: React.FC = () => {
+export const Contact = React.memo(() => {
   const { settings } = useGlass();
 
   // Proposal Form State
@@ -137,10 +137,11 @@ export const Contact: React.FC = () => {
 
                     {/* Monthly Budget */}
                     <div className="space-y-2">
-                      <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/60">
+                      <label htmlFor="budget-select" className="block text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/60">
                         Monthly Ad Budget
                       </label>
                       <select
+                        id="budget-select"
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
                         className="w-full bg-white/40 border border-brand-charcoal/10 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-xl px-4 py-3 text-sm text-brand-charcoal outline-none transition-colors appearance-none cursor-pointer"
@@ -205,7 +206,7 @@ export const Contact: React.FC = () => {
             <div 
               className="w-full h-full bg-cover bg-center"
               style={{
-                backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0-62ViSg8iKlWnZUPAr_8l0_ubFGpvmUR3_kCcaqHQXr_CqHCI4_mca2euJX59mwp8Ytyw37kNrhzqzV_JU3dxH7MC8itytfDtALlkr6BMpqDFUUqHCrWwd1863Y2Ob5-y3u-wOs-GGm7a7G1fqL0z16u8AxGn0vuVGVJa3Nk_spZVXqTuG7HwAWlxhk42KeI-w9GOaawiTYjndwWI5d1hRXHYvQOLOdxvO4hQutmqCYsySQB7twG')",
+                backgroundImage: "url('/assets/strategy-session.webp')",
               }}
             />
             <div className="absolute inset-0 bg-brand-charcoal/10 mix-blend-multiply" />
@@ -430,4 +431,4 @@ export const Contact: React.FC = () => {
       </AnimatePresence>
     </section>
   );
-};
+});

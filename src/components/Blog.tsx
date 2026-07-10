@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { m as motion, AnimatePresence } from 'motion/react';
 import { DynamicGlassCard } from './DynamicGlassCard';
 import { ArrowUpRight, Clock, Eye, Sparkles } from 'lucide-react';
 import { useGlass } from './GlassContext';
