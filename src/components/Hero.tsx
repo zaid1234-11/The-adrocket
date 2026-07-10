@@ -1,5 +1,4 @@
-import React from 'react';
-import { m as motion, useScroll, useTransform } from 'motion/react';
+import React, { useState, useEffect } from 'react';
 import { useGlass } from './GlassContext';
 import { Sparkles, FileText, CheckCircle, TrendingUp } from 'lucide-react';
 import { Logo } from './Logo';
@@ -7,28 +6,39 @@ import { DynamicGlassCard } from './DynamicGlassCard';
 
 export const Hero = React.memo(() => {
   const { settings } = useGlass();
-  const { scrollY } = useScroll();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Throttle scroll updates using requestAnimationFrame for smooth 60fps parallax
+      window.requestAnimationFrame(() => {
+        setScrollY(window.scrollY);
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Fine-tuned parallax displacements for multi-layered depth of field
-  const yBlobLeft = useTransform(scrollY, [0, 1000], [0, -80]);
-  const yAestheticDiamond = useTransform(scrollY, [0, 1000], [0, 120]);
+  const yBlobLeft = scrollY * -0.08;
+  const yAestheticDiamond = scrollY * 0.12;
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 px-6 overflow-hidden">
       
       {/* Floating abstract gold and sage orbits with Parallax scroll mapping */}
-      <motion.div 
-        style={{ y: yBlobLeft, willChange: 'transform' }}
-        className="absolute top-[15%] left-[2%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-brand-gold/10 to-transparent blur-3xl pointer-events-none select-none" 
+      <div 
+        style={{ transform: `translateY(${yBlobLeft}px)`, willChange: 'transform' }}
+        className="absolute top-[15%] left-[2%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-brand-gold/10 to-transparent blur-3xl pointer-events-none select-none transition-transform duration-75 ease-linear" 
       />
 
       {/* Floating Sparkle/Diamond Accent (Parallax) */}
-      <motion.div 
-        style={{ y: yAestheticDiamond, willChange: 'transform' }}
-        className="absolute left-[8%] bottom-[25%] z-0 text-brand-gold/20 pointer-events-none select-none hidden md:block"
+      <div 
+        style={{ transform: `translateY(${yAestheticDiamond}px)`, willChange: 'transform' }}
+        className="absolute left-[8%] bottom-[25%] z-0 text-brand-gold/20 pointer-events-none select-none hidden md:block transition-transform duration-75 ease-linear"
       >
         <Sparkles className="w-10 h-10 animate-pulse" />
-      </motion.div>
+      </div>
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-6">
